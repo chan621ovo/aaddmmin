@@ -7,11 +7,12 @@ $(function(){
 function contestDataNum(){
     $.ajax({
         type : 'GET',
-        url : `${E}/api/v1/admin/winner/${idx}`,
+        url : `${E}/api/v1/admin/contest/dashboard`,
         success: function(x){
-            // $(".all_num1").siblings("h4").text(x.length);
-            // $(".all_num2").siblings("h4").text(`${comma(sum)}원`);
-            // $(".all_num3").siblings("h4").text(`${comma(sum)}원`);
+            console.log(x)
+            $(".all_num1").siblings("h4").text(x.contestCount);
+            $(".all_num2").siblings("h4").text(`${comma(x.totalReward)}원`);
+            $(".all_num3").siblings("h4").text(x.joinCount+ "명");
         },
         error : function(err){
             console.log(err);
